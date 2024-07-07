@@ -26,11 +26,11 @@ const SearchManufacturer = ({
           item
             .toLowerCase()
             .replace(/\s+/g, '')
-            .includes(query.toLowerCase().replace(/\s+/g, ''))
+            .startsWith(query.toLowerCase().replace(/\s+/g, ''))
         );
 
   return (
-    <div className="search-manufacturer">
+    <div className="search-manufacturer z-10">
       <Combobox value={manufacturer} onChange={setManuFacturer}>
         <div className="relative w-full">
           <ComboboxButton className="absolute top-[14px]">
@@ -72,11 +72,7 @@ const SearchManufacturer = ({
                 filteredManufacturers.map((item) => (
                   <ComboboxOption
                     key={item}
-                    className={({ active }) =>
-                      `relative search-manufacturer__option ${
-                        active ? 'bg-primary-blue text-white' : 'text-gray-900'
-                      }`
-                    }
+                    className="relative search-manufacturer__option text-gray-900 data-[focus]:bg-primary-blue data-[focus]:text-white"
                     value={item}
                   >
                     {item}

@@ -1,5 +1,3 @@
-import { MouseEventHandler } from 'react';
-
 export interface ButtonProps {
   isDisabled?: boolean;
   btnType?: 'button' | 'submit';
@@ -7,7 +5,7 @@ export interface ButtonProps {
   textStyles?: string;
   title: string;
   rightIcon?: string;
-  handleClick?: MouseEventHandler<HTMLButtonElement>;
+  handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface SearchManufacturerProps {
@@ -34,4 +32,16 @@ export interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
   car: CarProps;
+}
+
+export interface FilterProps {
+  manufacturer?: string;
+  year?: number;
+  model?: string;
+  limit?: number;
+  fuel?: string;
+}
+
+export interface HomeProps {
+  searchParams: FilterProps;
 }
