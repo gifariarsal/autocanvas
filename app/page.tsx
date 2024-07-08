@@ -1,5 +1,11 @@
-import { CarCard, Filter, Hero, SearchBar } from '@/components';
-import FilterResetButton from '@/components/FilterResetButton';
+import {
+  CarCard,
+  Filter,
+  FilterResetButton,
+  Hero,
+  SearchBar,
+  ShowMoreButton,
+} from '@/components';
 import { fuels, yearsOfProduction } from '@/constants';
 import { HomeProps } from '@/types';
 import { fetchCars } from '@/utils';
@@ -13,7 +19,8 @@ export default async function Home({ searchParams }: HomeProps) {
     model: searchParams.model || '',
   });
 
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length === 0 || !allCars;
+  const isDataEmpty =
+    !Array.isArray(allCars) || allCars.length === 0 || !allCars;
 
   const hasQuery =
     searchParams.manufacturer ||
@@ -47,6 +54,10 @@ export default async function Home({ searchParams }: HomeProps) {
                 <CarCard key={`${car.model}-${index}`} car={car} />
               ))}
             </div>
+            <ShowMoreButton
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className="home__error-container">

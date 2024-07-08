@@ -11,19 +11,13 @@ import {
   Transition,
 } from '@headlessui/react';
 import Image from 'next/image';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 const SearchManufacturer = ({
   manufacturer,
-  setManuFacturer,
+  setManufacturer,
 }: SearchManufacturerProps) => {
   const [query, setQuery] = useState('');
-
-  useEffect(() => {
-    if (query === '') {
-      setManuFacturer('');
-    }
-  }, [query, setManuFacturer]);
 
   const filteredManufacturers =
     query === ''
@@ -37,7 +31,7 @@ const SearchManufacturer = ({
 
   return (
     <div className="search-manufacturer z-10">
-      <Combobox value={manufacturer} onChange={setManuFacturer}>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <ComboboxButton className="absolute top-[14px]">
             <Image
