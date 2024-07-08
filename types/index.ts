@@ -45,3 +45,13 @@ export interface FilterProps {
 export interface HomeProps {
   searchParams: FilterProps;
 }
+
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
+export interface FilterComponentProps {
+  title: string;
+  options: OptionProps[];
+}

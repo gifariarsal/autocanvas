@@ -1,4 +1,5 @@
 import { CarCard, Filter, Hero, SearchBar } from '@/components';
+import { fuels, yearsOfProduction } from '@/constants';
 import { HomeProps } from '@/types';
 import { fetchCars } from '@/utils';
 
@@ -26,16 +27,16 @@ export default async function Home({ searchParams }: HomeProps) {
           <SearchBar />
 
           <div className="home__filter-container">
-            <Filter />
-            <Filter />
+            <Filter title="fuel" options={fuels} />
+            <Filter title="year" options={yearsOfProduction} />
           </div>
         </div>
 
         {!isDataEmpty ? (
           <section>
             <div className="home__cars-wrapper">
-              {allCars?.map((car) => (
-                <CarCard key={car.id} car={car} />
+              {allCars?.map((car, index) => (
+                <CarCard key={`${car.model}-${index}`} car={car} />
               ))}
             </div>
           </section>

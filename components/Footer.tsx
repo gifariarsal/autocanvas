@@ -9,8 +9,8 @@ const Footer = () => (
         <Image
           src="/logo.svg"
           alt="logo"
-          width={118}
-          height={18}
+          width={200}
+          height={42}
           className="object-contain"
         />
       </div>
@@ -20,9 +20,9 @@ const Footer = () => (
           <div key={title} className="footer__link">
             <h3 className="font-bold">{title}</h3>
             <div className="flex flex-col gap-5">
-              {links.map(({ title, url }) => (
-                <Link key={title} href={url} className="text-gray-500">
-                  {title}
+              {links.map(({ item, url }) => (
+                <Link key={item} href={url} className="text-gray-500 hover:underline">
+                  {item}
                 </Link>
               ))}
             </div>
@@ -35,10 +35,10 @@ const Footer = () => (
       <p>&copy;{new Date().getFullYear()} CarHub. All rights reserved</p>
 
       <div className="footer__copyrights-link">
-        <Link href="/" className="text-gray-500">
+        <Link href="/" className="text-gray-500 hover:underline">
           Privacy & Policy
         </Link>
-        <Link href="/" className="text-gray-500">
+        <Link href="/" className="text-gray-500 hover:underline">
           Terms & Condition
         </Link>
       </div>

@@ -9,8 +9,8 @@ const NavBar = () => (
         <Image
           src="/logo.svg"
           alt="logo"
-          width={118}
-          height={18}
+          width={200}
+          height={42}
           className="object-contain"
         />
       </Link>
