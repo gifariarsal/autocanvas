@@ -1,4 +1,5 @@
 import { CarCard, Filter, Hero, SearchBar } from '@/components';
+import FilterResetButton from '@/components/FilterResetButton';
 import { fuels, yearsOfProduction } from '@/constants';
 import { HomeProps } from '@/types';
 import { fetchCars } from '@/utils';
@@ -12,7 +13,13 @@ export default async function Home({ searchParams }: HomeProps) {
     model: searchParams.model || '',
   });
 
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 0;
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length === 0 || !allCars;
+
+  const hasQuery =
+    searchParams.manufacturer ||
+    searchParams.year ||
+    searchParams.fuel ||
+    searchParams.model;
 
   return (
     <main className="overflow-hidden">
@@ -30,6 +37,7 @@ export default async function Home({ searchParams }: HomeProps) {
             <Filter title="fuel" options={fuels} />
             <Filter title="year" options={yearsOfProduction} />
           </div>
+          {hasQuery && <FilterResetButton />}
         </div>
 
         {!isDataEmpty ? (
@@ -43,7 +51,6 @@ export default async function Home({ searchParams }: HomeProps) {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">No car found</h2>
-            <p>{allCars?.message}</p>
           </div>
         )}
       </div>

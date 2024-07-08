@@ -11,13 +11,19 @@ import {
   Transition,
 } from '@headlessui/react';
 import Image from 'next/image';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 const SearchManufacturer = ({
   manufacturer,
   setManuFacturer,
 }: SearchManufacturerProps) => {
   const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    if (query === '') {
+      setManuFacturer('');
+    }
+  }, [query, setManuFacturer]);
 
   const filteredManufacturers =
     query === ''
