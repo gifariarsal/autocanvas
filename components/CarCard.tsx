@@ -1,6 +1,5 @@
 'use client';
 
-import { CarProps } from '@/types';
 import { calculateCarRent } from '@/utils';
 import { useState } from 'react';
 import Button from './Button';

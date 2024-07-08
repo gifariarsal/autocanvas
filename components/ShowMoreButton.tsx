@@ -1,6 +1,5 @@
 'use client';
 
-import { ShowMoreButtonProps } from '@/types';
 import { updateSearchParams } from '@/utils';
 import { useRouter } from 'next/navigation';
 import Button from './Button';

@@ -1,4 +1,4 @@
-export interface ButtonProps {
+interface ButtonProps {
   isDisabled?: boolean;
   btnType?: 'button' | 'submit';
   containerStyles?: string;
@@ -8,12 +8,12 @@ export interface ButtonProps {
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface SearchManufacturerProps {
+interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
 }
 
-export interface CarProps {
+interface CarProps {
   city_mpg: number;
   class: string;
   combination_mpg: number;
@@ -28,13 +28,17 @@ export interface CarProps {
   year: number;
 }
 
-export interface CarDetailsProps {
+interface CarCardProps {
+  car: CarProps;
+}
+
+interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
   car: CarProps;
 }
 
-export interface FilterProps {
+interface FilterProps {
   manufacturer?: string;
   year?: number;
   model?: string;
@@ -42,21 +46,21 @@ export interface FilterProps {
   fuel?: string;
 }
 
-export interface HomeProps {
+interface HomeProps {
   searchParams: FilterProps;
 }
 
-export interface OptionProps {
+interface OptionProps {
   title: string;
   value: string;
 }
 
-export interface FilterComponentProps {
+interface FilterComponentProps {
   title: string;
   options: OptionProps[];
 }
 
-export interface ShowMoreButtonProps {
+interface ShowMoreButtonProps {
   pageNumber: number;
   isNext: boolean;
 }

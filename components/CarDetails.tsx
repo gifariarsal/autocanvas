@@ -9,7 +9,6 @@ import {
   Transition,
   TransitionChild,
 } from '@headlessui/react';
-import { CarDetailsProps } from '@/types';
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
   <>

@@ -10,7 +10,6 @@ import {
   ListboxOptions,
   Transition,
 } from '@headlessui/react';
-import { FilterComponentProps } from '@/types';
 import { updateSearchParams } from '@/utils';
 
 export default function CustomFilter({ title, options }: FilterComponentProps) {
